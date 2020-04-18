@@ -2,17 +2,21 @@
 
 <head>
     <title>Assignment 1</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <header>
-        <section>
+    <header class="main-header wrapper">
+        <section class="logo-title">
             <!-- Logo and Title -->
-            <img src="" alt="Website Logo">
-            <p>Website Title</p>
+            <img src="coronavirus.png" alt="Website Logo" id="logo">
+            <p id="title"><a href="#" id="home">Website Title</a></p>
         </section>
-        <nav>
+        <div class id="trigger">
+            <img src="list.png" alt="Trigger icon" id="trigger-icon">
+        </div>
+        <nav id="nav-bar">
             <!-- Menu -->
             <ul>
                 <li><a href="#">Item 1</a></li>
@@ -22,31 +26,31 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section>
+    <main class="wrapper">
+        <section class="welcome-message">
             <!-- Welcome Message -->
             <h1>Welcome Message</h1>
         </section>
-        <section>
+        <section class="main-section">
             <!-- Content -->
             <h2>Section Title</h2>
-            <article>
+            <article class="content-box">
                 <p>Content Box 1</p>
             </article>
-            <article>
+            <article class="content-box">
                 <p>Content Box 2</p>
             </article>
-            <article>
+            <article class="content-box">
                 <p>Content Box 3</p>
             </article>
-            <article>
+            <article class="content-box">
                 <p>Content Box 4</p>
             </article>
         </section>
     </main>
-    <footer>
-        <div>
-            <p>Call to Action</p>
+    <footer class="wrapper footer">
+        <div class="action-button">
+            <p><a href="#">Call to Action</a></p>
         </div>
     </footer>
 </body>
