@@ -13,7 +13,7 @@
             <img src="coronavirus.png" alt="Website Logo" id="logo">
             <p id="title"><a href="#" id="home">Website Title</a></p>
         </section>
-        <div class id="trigger">
+        <div id="trigger">
             <img src="list.png" alt="Trigger icon" id="trigger-icon">
         </div>
         <nav id="nav-bar">
@@ -25,6 +25,17 @@
                 <li><a href="#">Item 4</a></li>
             </ul>
         </nav>
+        <div id="hidden-menu">
+            <ul>
+                <li><a href="#">Item 1</a></li>
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+                <li><a href="#">Item 4</a></li>
+            </ul>
+            <div id="close-menu">
+                <h1>X</h1>
+            </div>
+        </div>
     </header>
     <main class="wrapper">
         <section class="welcome-message">
@@ -35,7 +46,8 @@
             <!-- Content Box-->
             <h2>Section Title</h2>
             <article class="content-box">
-                <p>Content Box 1</p>
+                <p id="week2"><a href="../week-2/week2-coding.js">Click to Week-2 Assignment</a></p>
+                <!-- 待解決：多行或是加上新<p><pre><button>都會造成content box跑位 -->
             </article>
             <article class="content-box">
                 <p>Content Box 2</p>
@@ -47,13 +59,31 @@
                 <p>Content Box 4</p>
             </article>
         </section>
-    </main>
 
-    <footer class="wrapper footer">
-        <div class="action-button">
-            <p><a href="#">Call to Action</a></p>
-        </div>
-    </footer>
+
+        <section class="wrapper">
+            <div class="action-button">
+                <p><a href="#">Call to Action</a></p>
+            </div>
+        </section>
+
+        <section class="main-section" id="add-on">
+            <!-- Add-on Content Box-->
+            <article class="content-box">
+                <p>Content Box 5</p>
+            </article>
+            <article class="content-box">
+                <p>Content Box 6</p>
+            </article>
+            <article class="content-box">
+                <p>Content Box 7</p>
+            </article>
+            <article class="content-box">
+                <p>Content Box 8</p>
+            </article>
+        </section>
+    </main>
+    <script src="../week-2/main.js"></script>
 </body>
 
 </html>
