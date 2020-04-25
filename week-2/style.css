@@ -1,0 +1,184 @@
+html {
+    font-size: 1em;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+* {
+    /* border: 1px solid black; */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.main-header {
+    background-color: gray;
+    height: 50px;
+    margin: auto 0;
+    display: float;
+}
+
+.logo-title {
+    height: 50px;
+    color: black;
+    margin: 0;
+    float: left;
+    line-height: 50px;
+}
+
+#logo {
+    width: 45px;
+    height: 45px;
+    margin: 2.5px 5px;
+}
+
+#title {
+    float: right;
+    line-height: 50px;
+}
+
+nav {
+    display: block;
+    float: right;
+    padding-right: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    float: left;
+    width: 75px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#trigger {
+    float: right;
+    display: none;
+    height: 50px;
+}
+
+#trigger-icon {
+    width: 45px;
+    height: 45px;
+    margin: 2.5px 20px;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: white;
+}
+
+#home:hover {
+    color: black;
+}
+
+#hidden-menu {
+    display:none;
+    background-color:lightgray;
+    height: 100%;
+    width: 45%;
+    position: fixed;
+    right: 0;
+}
+
+#hidden-menu li {
+    height: 50px;
+    font-size: 1.2em;
+    line-height: 50px;
+    padding:5px 10px;
+}
+
+#close-menu{
+    position:fixed;
+    top:5px;
+    right: 5px;
+}
+
+.welcome-message {
+    background-color: blue;
+    height: 200px;
+}
+
+.welcome-message h1 {
+    line-height: 200px;
+    font-size: 2em;
+    text-align: center;
+}
+
+.main-section {
+    text-align: center;
+}
+
+.main-section h2 {
+    line-height: 2;
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.content-box {
+    display: inline-block;
+    width: 40%;
+    max-width: 480px;
+    height: 250px;
+    margin: 20px;
+    background-color: gray;
+}
+
+.action-button {
+    width: 125px;
+    margin: 10px auto;
+    background-color: aqua;
+}
+
+.action-button p {
+    width: 125px;
+    height: 2.5em;
+    line-height: 2.5;
+    text-align: center;
+}
+
+#add-on{
+    display: none;
+}
+
+/* Media Queries */
+
+@media (max-width: 800px) {
+    #nav-bar {
+        display: none;
+    }
+
+    #trigger {
+        display: block;
+    }
+
+    .content-box {
+        margin: 15px;
+    }
+}
+
+@media (max-width: 500px) {
+    .content-box {
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+    }
+}
