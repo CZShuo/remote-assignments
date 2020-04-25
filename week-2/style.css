@@ -91,8 +91,8 @@ a:hover {
 }
 
 #hidden-menu {
-    display:none;
-    background-color:lightgray;
+    display: none;
+    background-color: lightgray;
     height: 100%;
     width: 45%;
     position: fixed;
@@ -103,12 +103,12 @@ a:hover {
     height: 50px;
     font-size: 1.2em;
     line-height: 50px;
-    padding:5px 10px;
+    padding: 5px 10px;
 }
 
-#close-menu{
-    position:fixed;
-    top:5px;
+#close-menu {
+    position: fixed;
+    top: 5px;
     right: 5px;
 }
 
@@ -155,7 +155,7 @@ a:hover {
     text-align: center;
 }
 
-#add-on{
+#add-on {
     display: none;
 }
 

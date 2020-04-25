@@ -12,11 +12,11 @@ triggerIcon.addEventListener('click', () => {
     hiddenMenu.style.display = 'block';
 })
 closeMenu.addEventListener('click', () => {
-    hiddenMenu.style.display ='none';
+    hiddenMenu.style.display = 'none';
 })
 
 const actionButton = document.querySelector('.action-button');
-const addOn= document.querySelector('#add-on')
+const addOn = document.querySelector('#add-on')
 
 actionButton.addEventListener('click', () => {
     addOn.style.display = 'block';
