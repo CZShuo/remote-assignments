@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUM!</title>
+    <script>
+        function requestNew(num) {
+            if (!num) {
+                num = document.getElementById('newNumber').value;
+            }
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                document.getElementById('getSum').innerHTML = xhr.responseText;
+            }
+            xhr.open("GET", 'getData?number=' + num);
+            xhr.send();
+        }
+    </script>
+</head>
+
+<body onload="requestNew(10);">
+    <input type="text" name="number" id="newNumber" value='10'/>
+    <label>!</label>
+    <button onclick="requestNew();">=</button>
+    <div id="getSum"></div>
+</body>
+
+</html>
