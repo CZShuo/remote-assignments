@@ -13,8 +13,12 @@ app.set('view engine','pug');
 
 const routesMain = require('./routes');
 const routesGetData =require('./routes/getData');
+const routesMyName= require('./routes/myName');
+const routesTrackName= require('./routes/trackName');
 app.use(routesMain);
 app.use('/getData',routesGetData);
+app.use('/myName',routesMyName);
+app.use('/trackName',routesTrackName);
 
 
 app.listen(3000,()=>{console.log('Running on localhost:3000')});
