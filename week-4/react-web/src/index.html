@@ -1,39 +1,222 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Assignment 4</title>
+        <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+        <link rel="stylesheet" href="./index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <title>Assignment 4</title>
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const HiddenNav = (props) => {
+                if (!props.navHidden) {
+                    return (
+                        <div id="hidden-menu">
+                            <ul>
+                                {props.items.map((item, index) => (
+                                    <li key={index}>
+                                        <a href="#">Item {item.item}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                            <div id="close-menu">
+                                <h1 onMouseDown={() => props.toggleNavHidden()}>
+                                    X
+                                </h1>
+                            </div>
+                        </div>
+                    );
+                }
+                return null;
+            };
 
-    <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-</head>
+            const HiddenContent = (props) => {
+                if (props.showHidden) {
+                    return (
+                        <section className="main-section">
+                            {props.hiddenContent.map((content, index) => (
+                                <article className="content-box" key={index}>
+                                    <p>Content Box {content.box}</p>
+                                </article>
+                            ))}
+                        </section>
+                    );
+                }
+                return null;
+            };
+            class App extends React.Component {
+                state = {
+                    welcome: true,
+                    contents: [
+                        {
+                            box: "1",
+                        },
+                        {
+                            box: "2",
+                        },
+                        {
+                            box: "3",
+                        },
+                        {
+                            box: "4",
+                        },
+                    ],
+                    showHidden: false,
+                    hiddenContent: [
+                        {
+                            box: "5",
+                        },
+                        {
+                            box: "6",
+                        },
+                        {
+                            box: "7",
+                        },
+                        {
+                            box: "8",
+                        },
+                    ],
+                    navHidden: true,
+                    items: [
+                        {
+                            item: "1",
+                        },
+                        {
+                            item: "2",
+                        },
+                        {
+                            item: "3",
+                        },
+                        {
+                            item: "4",
+                        },
+                    ],
+                };
 
-<body>
-    <div id="root"></div>
-    <script type="text/babel">
+                toggleWelcome = () => {
+                    this.setState({
+                        welcome: !this.state.welcome,
+                    });
+                };
 
-        ReactDOM.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('root')
-      );
+                toggleHidden = () => {
+                    this.setState({
+                        showHidden: !this.state.showHidden,
+                    });
+                };
 
-    </script>
-    <!--
-      Note: this page is a great way to try React but it's not suitable for production.
-      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+                toggleNavHidden = () => {
+                    this.setState({
+                        navHidden: !this.state.navHidden,
+                    });
+                };
 
-      Read this section for a production-ready setup with JSX:
-      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+                render() {
+                    return (
+                        <div>
+                            <header className="main-header wrapper">
+                                <section className="logo-title">
+                                    <img
+                                        src="./images/coronavirus.png"
+                                        alt="Website Logo"
+                                        id="logo"
+                                    />
+                                    <p id="title">
+                                        <a href="#" id="home">
+                                            Website Title
+                                        </a>
+                                    </p>
+                                </section>
+                                <div id="trigger">
+                                    <img
+                                        src="./images/list.png"
+                                        alt="Trigger icon"
+                                        id="trigger-icon"
+                                        onMouseDown={() =>
+                                            this.toggleNavHidden()
+                                        }
+                                    />
+                                </div>
 
-      In a larger project, you can use an integrated toolchain that includes JSX instead:
-      https://reactjs.org/docs/create-a-new-react-app.html
+                                <div>
+                                    <nav id="nav-bar">
+                                        <ul>
+                                            {this.state.items.map(
+                                                (item, index) => (
+                                                    <li key={index}>
+                                                        <a href="#">
+                                                            Item {item.item}
+                                                        </a>
+                                                    </li>
+                                                )
+                                            )}
+                                        </ul>
+                                    </nav>
 
-      You can also use React without JSX, in which case you can remove Babel:
-      https://reactjs.org/docs/react-without-jsx.html
-    -->
-</body>
+                                    <HiddenNav
+                                        items={this.state.items}
+                                        navHidden={this.state.navHidden}
+                                        toggleNavHidden={this.toggleNavHidden}
+									/>
+                                </div>
+                            </header>
+                            <main className="wrapper">
+                                <section className="welcome-message">
+                                    <h1
+                                        onMouseDown={() => this.toggleWelcome()}
+                                    >
+                                        {this.state.welcome
+                                            ? "Welcome Message"
+                                            : "Have a Good Time!"}
+                                    </h1>
+                                     
+                                </section>
 
+                                <div>
+                                    <section className="main-section">
+                                        <h2>Section Title</h2>
+                                        {this.state.contents.map(
+                                            (content, index) => (
+                                                <article className="content-box" key={index}>
+                                                    <p>
+                                                        Content Box{" "}
+                                                        {content.box}
+                                                    </p>
+                                                </article>
+                                            )
+                                        )}
+                                    </section>
+
+                                    <section className="wrapper">
+                                        <div className="action-button">
+                                            <p
+                                                onMouseDown={() =>
+                                                    this.toggleHidden()
+                                                }
+                                            >
+                                                Call to Action
+                                            </p>
+                                        </div>
+                                    </section>
+
+                                    <HiddenContent
+                                        showHidden={this.state.showHidden}
+                                        hiddenContent={this.state.hiddenContent}
+									/>
+                                </div>
+                            </main>
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<App />, document.getElementById("root"));
+        </script>
+        </body>
 </html>
