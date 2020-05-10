@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUM!</title>
+    <script>
+        function ajax(src, callback) {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                const data = JSON.parse(xhr.responseText);
+                callback(data);
+            }
+            xhr.open('GET', src);
+            xhr.send();
+        }
+
+        function render(data) {
+            const divJSON = document.getElementById('getJSON');
+            data.map(product => {
+                let newPro = document.createElement('div');
+                let titleDiv = document.createElement('h1');
+                titleDiv.textContent=`Product: ${product.name}`;
+                let priceDiv = document.createElement('h3');
+                priceDiv.textContent=`Price: NTD${product.price}`;
+                let desDiv = document.createElement('p');
+                desDiv.textContent=product.description;
+
+                divJSON.appendChild(newPro);
+                newPro.appendChild(titleDiv);
+                newPro.appendChild(priceDiv);
+                newPro.appendChild(desDiv);
+            })
+        }
+        ajax("https://cwpeng.github.io/live-records-samples/data/products.json", function (response) {
+            render(response);
+        });
+    </script>
+</head>
+
+<body>
+    <!-- <button onclick="">Get JSON</button> -->
+    <div id="getJSON"></div>
+</body>
+
+</html>
